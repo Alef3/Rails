@@ -1,0 +1,6 @@
+<h3> New Genre </h3>
+<%= @genre.errors.first %>
+<%= form_for @genre do |f| %>
+  <b> Nome: </b>  <%= f.text_field :name %>
+  <%= f.submit 'Save' %>
+<% end %>

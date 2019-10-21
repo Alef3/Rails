@@ -1,5 +1,7 @@
-<h3> Desenvolvimento Web 2 </h3>
-
-<p> O Conteúdo da Variável Consulta Será Exibido Abaixo: </p>
-
-<%= @consulta.try(:inspect) %>
+<h3> All Tracks </h3>
+<a href="./new"><button>New Track</button></a>
+<ol>
+  <% @tracks.each do |track| %>
+    <li> <%= link_to track.name, track  %> </li>
+  <% end %>
+</ol>
