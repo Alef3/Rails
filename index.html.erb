@@ -1,10 +1,9 @@
 <h3> Desenvolvimento Web 2 </h3>
 
-<p> Os artisas serão exibidos logo abaixo: </p>
+<h1> Os artisas serão exibidos logo abaixo: </h1>
 
 <%= @consulta.try(:inspect) %>
-<h3> All Artists </h3>
-<%=link_to "Crear novo artista", new_artist_path %>
+<%=link_to "Criar novo artista", new_artist_path %>
 <ol>
     <% @artists.each do |artist|%>
         <li> <%= link_to artist.name , artist%> </li>
