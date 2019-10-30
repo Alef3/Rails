@@ -19,10 +19,23 @@ class TracksController < ApplicationController
       render :new
     end
   end
+  
+  def edit
+    @track = Track.find(params[:id])
+  end
+	 
+  def update
+    @track = Track.find(params[:id])
+    if @track.update_attributes(track_params)
+       redirect_to @track
+    else
+       render :edit
+    end
+  end
 
   private
 
   def track_params
-    params.require(:track).permit(:name)
+    params.require(:track).permit(:name, :album_id, :media_type_id, :genre_id, :composer, :milliseconds, :bytes, :unit_price)
   end
 end
