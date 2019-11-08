@@ -1,11 +1,10 @@
 class TracksController < ApplicationController
   def index
-    @tracks = Track.filter(params['name'])
+    @tracks = Track.filtrar(params['name'])
   end
 
   def show
     @track = Track.find(params[:id])
-    @tracks = Track.where(artist: @artist_id)
   end
 
   def new
@@ -20,11 +19,11 @@ class TracksController < ApplicationController
       render :new
     end
   end
-
+  
   def edit
     @track = Track.find(params[:id])
   end
-
+	 
   def update
     @track = Track.find(params[:id])
     if @track.update_attributes(track_params)
