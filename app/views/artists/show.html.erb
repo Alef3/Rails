@@ -4,7 +4,7 @@
 
 <fieldset>
 
-  <%= @albums.each do |album| %>
+  <% @albums.each do |album| %>
 
    <div class="card" style="width: 18rem;">
    <div class="card-body">
@@ -18,7 +18,7 @@
    </div>
  </div>
 
-   <b> ID: </b> <%= album.id %> <br>
+
  <% end %>
 
   <%= link_to "Back", "/artists" %>
