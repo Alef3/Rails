@@ -1,0 +1,7 @@
+<h3> All Tracks </h3>
+<a href="./new"><button>New Track</button></a>
+<ol>
+  <% @tracks.each do |track| %>
+    <li> <%= link_to track.name, track  %> </li>
+  <% end %>
+</ol>
