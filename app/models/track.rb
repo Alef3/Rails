@@ -5,8 +5,8 @@ class Track < ApplicationRecord
 
   validates_presence_of :name, :album, :media_type, :genre,
                         :milliseconds, :bytes, :unit_price
-                        
-	    scope :filter, ->(name) { where("name LIKE ?", "%#{name}%") if name.present? }
+
   validates :milliseconds, :bytes, :unit_price, :numericality => { :greater_than_or_equal_to => 0}
 
+  scope :filter, ->(name) { where("name LIKE ?", "%#{name}%") if name.present? }
 end
