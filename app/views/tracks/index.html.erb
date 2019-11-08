@@ -1,5 +1,13 @@
 <h3> All Tracks </h3>
-<a href="./new"><button>New Track</button></a>
+
+<%=link_to "Create Track", new_track_path %>
+
+<%= form_tag("/tracks", method: "get") do %>
+  <%= label_tag(:name, "Filter:") %>
+  <%= text_field_tag(:name, params['name']) %>
+  <%= submit_tag("Submit") %>
+<% end %>
+
 <ol>
   <% @tracks.each do |track| %>
     <li> <%= link_to track.name, track  %> </li>

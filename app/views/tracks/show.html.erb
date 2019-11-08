@@ -1,5 +1,7 @@
 <h3> Showing Track </h3>
-<a href="./"><button>Back</button></a>
+
+<%= link_to  "Edit", edit_track_path %>
+
 <fieldset>
   <b> ID: </b> <%= @track.id %> <br>
   <b> Name: </b> <%= @track.name %> <br>
@@ -12,4 +14,6 @@
   <b> Unit Price: </b> <%= @track.unit_price %> <br>
   <b> Created at: </b> <%= format(@track.created_at) %> <br>
   <b> Updated at: </b> <%= format(@track.updated_at) %> <br>
+
+  <%= link_to "Back", "/tracks" %>
 </fieldset>
