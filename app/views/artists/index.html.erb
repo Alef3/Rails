@@ -1,5 +1,9 @@
-<h3> Desenvolvimento Web 2 </h3>
+<h3>All Artists</h3>
 
-<p> O Conteúdo da Variável Consulta Será Exibido Abaixo: </p>
+<%=link_to "Create Artist", new_artist_path %>
 
-<%= @consulta.try(:inspect) %>
+<ol>
+  <% @artists.each do |artist| %>
+      <li> <%= link_to artist.name, artist %> </li>
+  <% end %>
+</ol>

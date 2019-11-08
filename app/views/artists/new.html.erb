@@ -1,0 +1,11 @@
+<h3> New Artist </h3>
+
+<%= @artist.errors.first %>
+
+<%= form_for @artist do |i| %>
+
+    <%= i.text_field :name %>
+
+    <%= i.submit 'Save' %>
+
+<% end %>

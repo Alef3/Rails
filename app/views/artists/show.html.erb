@@ -1,0 +1,25 @@
+<h3> Showing Albums of <%= @artist.name %> </h3>
+
+<%= link_to  "Edit", edit_artist_path %>
+
+<fieldset>
+
+  <%= @albums.each do |album| %>
+
+   <div class="card" style="width: 18rem;">
+   <div class="card-body">
+     <h5 class="card-title"> <%= album.title %> </h5>
+     <p class="card-text">
+     <b> Tracks:      </b> <%= Track.where(album_id: album.id).count %> <br>
+     <b> Created at: </b> <%= format(album.created_at.strftime("%d/%m/%y %H:%M")) %> <br>
+     <b> Updated at: </b> <%= format(album.updated_at.strftime("%d/%m/%y %H:%M")) %> <br>
+    </p>
+     <a href="#" class="btn btn-primary">Go to Tracks</a>
+   </div>
+ </div>
+
+   <b> ID: </b> <%= album.id %> <br>
+ <% end %>
+
+  <%= link_to "Back", "/artists" %>
+</fieldset>
