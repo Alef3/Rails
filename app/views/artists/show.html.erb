@@ -11,10 +11,9 @@
      <h5 class="card-title"> <%= album.title %> </h5>
      <p class="card-text">
      <b> Tracks:      </b> <%= Track.where(album_id: album.id).count %> <br>
-     <b> Created at: </b> <%= format(album.created_at.strftime("%d/%m/%y %H:%M")) %> <br>
-     <b> Updated at: </b> <%= format(album.updated_at.strftime("%d/%m/%y %H:%M")) %> <br>
+     <b> Created at: </b> <%= format(album.created_at) %> <br>
+     <b> Updated at: </b> <%= format(album.updated_at) %> <br>
     </p>
-     <a href="#" class="btn btn-primary">Go to Tracks</a>
    </div>
  </div>
 
