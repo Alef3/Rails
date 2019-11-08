@@ -1,0 +1,12 @@
+<h3> New Album </h3>
+
+<%= @album.errors.first %>
+
+<%= form_for @album do |i| %>
+
+    <%= i.text_field :title %>
+    <%= i.text_field :artist_id %>
+
+    <%= i.submit 'Save' %>
+
+<% end %>

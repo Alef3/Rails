@@ -1,0 +1,15 @@
+<h3>All Albums</h3>
+
+<%=link_to "Create Album", new_album_path %>
+
+<%= form_tag("/albums", method: "get") do %>
+  <%= label_tag(:title, "Filter:") %>
+  <%= text_field_tag(:title, params['title']) %>
+  <%= submit_tag("Submit") %>
+<% end %>
+
+<ol>
+  <% @albums.each do |album| %>
+      <li> <%= link_to album.title, album %> </li>
+  <% end %>
+</ol>
