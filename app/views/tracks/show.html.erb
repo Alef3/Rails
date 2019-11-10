@@ -1,19 +1,23 @@
 <h3> Showing Track </h3>
 
-<button type="button" class="btn btn-primary"><%= link_to  "Edit", edit_track_path, class: "link" %></button>
+<%= link_to  "Edit", edit_track_path, class: "btn btn-outline-info mb-3" %>
 
 <fieldset>
-  <b> ID: </b> <%= @track.id %> <br>
-  <b> Name: </b> <%= @track.name %> <br>
-  <b> Album: </b> <%= @track.album.title %> <br>
-  <b> Media Type: </b> <%= @track.media_type.name %> <br>
-  <b> Genre: </b> <%= @track.genre.name %> <br>
-  <b> Composer: </b> <%= @track.composer %> <br>
-  <b> Milliseconds: </b> <%= @track.milliseconds %> <br>
-  <b> Size (bytes): </b> <%= @track.bytes %> <br>
-  <b> Unit Price: </b> <%= @track.unit_price %> <br>
-  <b> Created at: </b> <%= format(@track.created_at) %> <br>
-  <b> Updated at: </b> <%= format(@track.updated_at) %> <br>
-
-<button type="button" class="btn btn-primary"><%= link_to "Back", "/tracks", class: "link" %></button>
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title"><%= @track.name %></h5>
+      <p class="card-text"><b> ID: </b> <%= @track.id %> </p>
+      <p class="card-text"><b> Album: </b> <%= @track.album.title %> </p>
+      <p class="card-text"><b> Media Type: </b> <%= @track.media_type.name %></p>
+      <p class="card-text"><b> Genre: </b> <%= @track.genre.name %> </p>
+      <p class="card-text"><b> Composer: </b> <%= @track.composer %> </p>
+      <p class="card-text"><b> Milliseconds: </b> <%= @track.milliseconds %> </p>
+      <p class="card-text"><b> Size (bytes): </b> <%= @track.bytes %> </p>
+      <p class="card-text"><b> Unit Price: </b> <%= @track.unit_price %> </p>
+      <p class="card-text"><b> Created at: </b> <%= format(@track.created_at) %> </p>
+      <p class="card-text"><b> Updated at: </b> <%= format(@track.updated_at) %> </p>
+      <%= link_to  "Go to Album", "/albums", class: "btn btn-primary" %>
+    </div>
+  </div>
+  <%= link_to  "Back", "/tracks", class: "btn btn-secondary mb-3" %>
 </fieldset>
