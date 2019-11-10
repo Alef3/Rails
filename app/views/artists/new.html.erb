@@ -3,10 +3,16 @@
 <%= @artist.errors.first %>
 
 <%= form_for @artist do |i| %>
+<div class="form-row align-items-center">
+  <div class="col-auto">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Name</span>
+        </div>
+        <%= i.text_field :name, class: "mr-3" %>
+        <%= i.submit 'Save', class: "btn btn-primary mr-2"  %>
 
-    <%= i.text_field :name %>
-
-    <button type="button" class="btn btn-outline-primary"><%= i.submit 'Save', class: "link" %></button>
-    <button type="button" class="btn btn-outline-primary"><%= link_to "Cancel", "/artists", class: "link" %></button>
-
+    <%= link_to "Cancel", "/artists", class: "btn btn-secondary" %>
+      </div>
+  </div>
 <% end %>
