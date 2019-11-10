@@ -1,6 +1,6 @@
 <h3>All Albums</h3>
 
-<%=link_to "Create Album", new_album_path %>
+<button type="button" class="btn btn-primary btn-sm"><%=link_to "Create Album", new_album_path, class: "link" %></button>
 
 <%= form_tag("/albums", method: "get") do %>
   <%= label_tag(:title, "Filter:") %>
