@@ -3,12 +3,26 @@
 <%= @album.errors.first %>
 
 <%= form_for @album do |i| %>
+<div class="form-row align-items-center">
+  <div class="col-auto">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Title</span>
+        </div>
+        <%= i.text_field :title %>
+      </div>
+  </div>
+  <div class="col-auto">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Artist</span>
+        </div>
+        <%= i.text_field :artist_id %>
+      </div>
+    </div>
+  </div>
+    <%= i.submit 'Save', class: "btn btn-primary" %>
 
-    <%= i.text_field :title %>
-    <%= i.text_field :artist_id %>
-
-    <%= i.submit 'Save' %>
-
-    <button type="button" class="btn btn-secondary"><%= link_to "Cancel", "/artists", class: "link" %></button>
+<%= link_to "Cancel", "/albums", class: "btn btn-secondary" %>
 
 <% end %>
