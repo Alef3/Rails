@@ -1,7 +1,7 @@
 class TracksController < ApplicationController
   
   def index
-    @tracks = Track.filter(params['name'])
+    @tracks = Track.filtrar(params['name'])
   end
 
   def show
@@ -26,14 +26,14 @@ class TracksController < ApplicationController
       render :new
     end
   end
-
+  
   def edit
     @albums = Album.all
     @track = Track.find(params[:id])
     @mediatypes = MediaType.all
     @genres = Genre.all
   end
-
+	 
   def update
     @albums = Album.all
     @track = Track.find(params[:id])
