@@ -6,7 +6,7 @@
 
     <%= i.text_field :name %>
 
-    <%= i.submit 'Save' %>
-    <%= link_to "Cancel", "/artists" %>
+    <button type="button" class="btn btn-outline-primary"><%= i.submit 'Save', class: "link" %></button>
+    <button type="button" class="btn btn-outline-primary"><%= link_to "Cancel", "/artists", class: "link" %></button>
 
 <% end %>

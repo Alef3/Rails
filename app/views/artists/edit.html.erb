@@ -4,8 +4,8 @@
 
     <p> Title: <%= i.text_field 'name' %> </p>
 
-    <%= i.submit "Save changes" %>
+      <%= i.submit "Save changes", class: "submit" %>
 
-    <%= link_to "Cancel", "/artists/#{@artist.id}" %>
+  <button type="button" class="btn btn-primary"><%= link_to "Cancel", "/artists/#{@artist.id}", class: "link" %></button>
 
 <% end %>

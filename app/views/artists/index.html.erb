@@ -1,15 +1,20 @@
 <h3>All Artists</h3>
 
-<%=link_to "Create Artist", new_artist_path %>
+  <button type="button" class="btn btn-primary btn-sm"><%=link_to "Create Artist", new_artist_path, class: "link" %></button>
 
-<%= form_tag("/artists", method: "get") do %>
-  <%= label_tag(:name, "Filter:") %>
-  <%= text_field_tag(:name, params['name']) %>
-  <%= submit_tag("Submit") %>
-<% end %>
+<div class="container">
 
-<ol>
-  <% @artists.each do |artist| %>
-      <li> <%= link_to artist.name, artist %> </li>
-  <% end %>
-</ol>
+  <div class="row">
+    <%= form_tag("/artists", method: "get") do %>
+      <%= label_tag(:name, "Filter:") %>
+      <%= text_field_tag(:name, params['name']) %>
+      <%= submit_tag("Submit") %>
+    <% end %>
+  </div>
+</div>
+
+  <ol>
+    <% @artists.each do |artist| %>
+        <li> <%= link_to artist.name, artist %> </li>
+    <% end %>
+  </ol>
