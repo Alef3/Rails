@@ -1,8 +1,11 @@
 <h3> Showing Tracks of  </h3>
 
-<%= link_to  "Edit", edit_album_path %>
+<div class="mb-3">
+  <%= link_to  "Edit Album", edit_album_path, class: "btn btn-outline-info" %>
 
-<%= link_to "Back", "/albums" %>
+  <%= link_to "Back", "/albums/", class: "btn btn-secondary" %>
+</div>
+
 
 <fieldset>
 
