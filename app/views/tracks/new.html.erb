@@ -1,13 +1,83 @@
 <h3> New Track </h3>
+
 <%= @track.errors.first %>
+
 <%= form_for @track do |f| %>
-  <b> Name: </b>  <%= f.text_field :name %>
-  <b> Album: </b>  <%= f.text_field :album_id %>
-  <b> Media Type: </b>  <%= f.text_field :media_type_id %>
-  <b> Genre: </b>  <%= f.text_field :genre_id %>
-  <b> Composer: </b>  <%= f.text_field :composer %>
-  <b> Milliseconds: </b>  <%= f.text_field :milliseconds %>
-  <b> Size (bytes): </b>  <%= f.text_field :bytes %>
-  <b> Unit Price: </b>  <%= f.text_field :unit_price %>
-  <%= f.submit 'Save' %>
+
+  <div class="col-auto">
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Name</span>
+        </div>
+        <%= f.text_field :name %>
+      </div>
+  </div>
+
+  <div class="col-auto">
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Album</span>
+        </div>
+        <%= f.text_field :album_id %>
+      </div>
+    </div>
+
+    <div class="col-auto">
+        <div class="input-group mb-2">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Media type</span>
+          </div>
+          <%= f.text_field :media_type_id %>
+        </div>
+    </div>
+
+    <div class="col-auto">
+        <div class="input-group mb-2">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Genre</span>
+          </div>
+          <%= f.text_field :genre_id %>
+        </div>
+      </div>
+
+      <div class="col-auto">
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Composer</span>
+            </div>
+            <%= f.text_field :composer %>
+          </div>
+      </div>
+
+      <div class="col-auto">
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Milliseconds</span>
+            </div>
+            <%= f.text_field :milliseconds %>
+          </div>
+        </div>
+
+        <div class="col-auto">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Size (bytes)</span>
+              </div>
+              <%= f.text_field :bytes %>
+            </div>
+        </div>
+
+        <div class="col-auto">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Unit-price</span>
+              </div>
+              <%= f.text_field :unit_price %>
+            </div>
+          </div>
+
+    <%= f.submit 'Save', class: "btn btn-primary" %>
+
+<%= link_to "Cancel", "/tracks", class: "btn btn-secondary" %>
+
 <% end %>

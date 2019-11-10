@@ -1,11 +1,21 @@
 <h3>All Albums</h3>
 
-<%=link_to "Create Album", new_album_path %>
-
 <%= form_tag("/albums", method: "get") do %>
-  <%= label_tag(:title, "Filter:") %>
-  <%= text_field_tag(:title, params['title']) %>
-  <%= submit_tag("Submit") %>
+    <form>
+    <div class="col-7">
+      <div class="form-row align-items-center">
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <%= label_tag(:title, "Filter:", class: "input-group-text") %>
+            </div>
+            <%= text_field_tag(:title, params['title'], class: "mr-3") %>
+            <%= submit_tag("Submit", class: "btn btn-outline-success mr-2") %>
+            <%=link_to "Create Album", new_album_path, class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </form>
+
 <% end %>
 
 <ol>

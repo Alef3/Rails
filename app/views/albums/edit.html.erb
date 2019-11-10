@@ -2,8 +2,13 @@
 
 <%= form_for @album, :url => {:action => "update", :id =>@album} do |i| %>
 
-    <p> Title: <%= i.text_field 'title' %> </p>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Title</span>
+      </div>
+      <%= i.text_field 'title' %>
+    </div>
 
-    <%= i.submit "Save changes" %>
-
+<%= i.submit "Save changes", class: "btn btn-primary" %>
+<%= link_to "Back", "/albums", class: "btn btn-secondary"%>
 <% end %>
