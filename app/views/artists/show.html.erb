@@ -1,14 +1,16 @@
 <h3> Showing Albums of <%= @artist.name %> </h3>
 
-    <button type="button" class="btn btn-primary"><%= link_to  "Edit Artist", edit_artist_path, class: "link" %></button>
+    <div class="mb-3">
+      <%= link_to  "Edit Artist", edit_artist_path, class: "btn btn-outline-info" %>
 
-    <button type="button" class="btn btn-success"><%= link_to  "Create new album for #{@artist.name}", new_album_path, artist_id: @artist.id, class: "link" %></button>
+      <%= link_to  "Create new album for #{@artist.name}", new_album_path, artist_id: @artist.id, class: "btn btn-primary" %>
+    </div>
 
 <fieldset>
 
   <% @albums.each do |album| %>
 
-      <div class="card" style="width: 18rem;">
+      <div class="card mb-2" style="width: 18rem;">
       <div class="card-body">
         <h5 class="card-title"> <%= album.title %> </h5>
         <p class="card-text">
@@ -16,14 +18,10 @@
         <b> Created at: </b> <%= format(album.created_at) %> <br>
         <b> Updated at: </b> <%= format(album.updated_at) %> <br>
        </p>
-        <a href="#" class="btn btn-primary">Go to Tracks</a>
+        <%= link_to "Go to Tracks", "/albums/#{album.id}", class: "btn btn-info" %>
       </div>
     </div>
-
-
-
-
  <% end %>
 
-      <button type="button" class="btn btn-secondary"><%= link_to "Back", "/artists", class: "link" %></button>
+<%= link_to "Back", "/artists", class: "btn btn-secondary" %>
 </fieldset>
