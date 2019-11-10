@@ -1,6 +1,6 @@
 <h3> Showing Track </h3>
 
-<%= link_to  "Edit", edit_track_path %>
+<button type="button" class="btn btn-primary"><%= link_to  "Edit", edit_track_path, class: "link" %></button>
 
 <fieldset>
   <b> ID: </b> <%= @track.id %> <br>
@@ -15,5 +15,5 @@
   <b> Created at: </b> <%= format(@track.created_at) %> <br>
   <b> Updated at: </b> <%= format(@track.updated_at) %> <br>
 
-  <%= link_to "Back", "/tracks" %>
+<button type="button" class="btn btn-primary"><%= link_to "Back", "/tracks", class: "link" %></button>
 </fieldset>

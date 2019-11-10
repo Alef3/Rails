@@ -1,6 +1,6 @@
 <h3> All Tracks </h3>
 
-<%=link_to "Create Track", new_track_path %>
+<button type="button" class="btn btn-primary btn-sm"><%=link_to "Create Track", new_track_path, class: "link" %></button>
 
 <%= form_tag("/tracks", method: "get") do %>
   <%= label_tag(:name, "Filter:") %>
