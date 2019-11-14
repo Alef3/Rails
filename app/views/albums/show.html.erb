@@ -10,27 +10,29 @@
 <fieldset>
 
  <% @tracks.each do |track| %>
-
- <div class="card">
-    <div class="card-header" id="heading">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse" aria-expanded="true" aria-controls="collapse">
-          <%= track.name %>
-        </button>
-      </h5>
-    </div>
-    <div id="collapse" class="collapse" aria-labelledby="heading" data-parent="#accordion">
-      <div class="card-body">
-        <b> Media Type: </b> <%= track.media_type.name %> <br>
-        <b> Genre: </b> <%= track.genre.name %> <br>
-        <b> Composer: </b> <%= track.composer %> <br>
-        <b> Milliseconds: </b> <%= track.milliseconds %> <br>
-        <b> Size (bytes): </b> <%= track.bytes %> <br>
-        <b> Unit Price: </b> <%= track.unit_price %> <br>
-      </div>
-    </div>
+<div class="accordion" id="<%= track.id%>">
+  <div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="heading<%= track.id%>">
+         <h2 class="mb-0">
+           <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse<%= track.id%>" aria-expanded="false" aria-controls="collapse<%= track.id%>">
+             <%= track.name%>
+           </button>
+         </h2>
+       </div>
+       <div id="collapse<%= track.id%>" class="collapse" aria-labelledby="heading<%= track.id%>" data-parent="#accordionExample">
+         <div class="card-body">
+           <b> Media Type: </b> <%= track.media_type.name %> <br>
+           <b> Genre: </b> <%= track.genre.name %> <br>
+           <b> Composer: </b> <%= track.composer %> <br>
+           <b> Milliseconds: </b> <%= track.milliseconds %> <br>
+           <b> Size (bytes): </b> <%= track.bytes %> <br>
+           <b> Unit Price: </b> <%= track.unit_price %> <br>
+         </div>
+       </div>
+     </div>
+   </div>
   </div>
-
 <% end %>
 
 
