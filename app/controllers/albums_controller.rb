@@ -5,8 +5,8 @@ class AlbumsController < ApplicationController
   end
 
   def show
-      @album = Album.where(params[:id])
-      @tracks = Track.where(album_id: @album.ids)
+      @album = Album.find(params[:id])
+      @tracks = @album.tracks
   end
 
   def new

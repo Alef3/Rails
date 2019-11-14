@@ -1,7 +1,7 @@
 class TracksController < ApplicationController
-  
+
   def index
-    @tracks = Track.filter(params['name'])
+    @tracks = Track.all
   end
 
   def show
