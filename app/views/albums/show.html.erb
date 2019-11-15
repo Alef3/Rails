@@ -1,4 +1,4 @@
-<h3> Showing Tracks of <%= @album.title %> </h3>
+<h3> Showing Tracks of "<%= @album.title %>" </h3>
 
 <div class="mb-3">
   <%= link_to  "Edit Album", edit_album_path, class: "btn btn-outline-info" %>
@@ -22,12 +22,13 @@
 
            <div id="collapse<%= track.id%>" class="collapse" aria-labelledby="heading<%= track.id%>" data-parent="#accordion">
              <div class="card-body">
-               <b> Media Type: </b> <%= track.media_type.name %> <br>
-               <b> Genre: </b> <%= track.genre.name %> <br>
-               <b> Composer: </b> <%= track.composer %> <br>
-               <b> Milliseconds: </b> <%= track.milliseconds %> <br>
-               <b> Size (bytes): </b> <%= track.bytes %> <br>
-               <b> Unit Price: </b> <%= track.unit_price %> <br>
+               <p><b> Media Type: </b> <%= track.media_type.name %></p>
+               <p><b> Genre: </b> <%= track.genre.name %></p>
+               <p><b> Composer: </b> <%= track.composer %></p>
+               <p><b> Milliseconds: </b> <%= track.milliseconds %></p>
+               <p><b> Size (bytes): </b> <%= track.bytes %></p>
+               <p><b> Unit Price: </b> <%= track.unit_price %></p>
+               <%= link_to  "Edit Track", edit_track_path, class: "btn btn-info" %>
              </div>
            </div>
          </div>
