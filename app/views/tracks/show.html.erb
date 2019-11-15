@@ -16,7 +16,7 @@
       <p class="card-text"><b> Unit Price: </b> <%= @track.unit_price %> </p>
       <p class="card-text"><b> Created at: </b> <%= format(@track.created_at) %> </p>
       <p class="card-text"><b> Updated at: </b> <%= format(@track.updated_at) %> </p>
-      <%= link_to  "Go to Album", "/albums", class: "btn btn-primary" %>
+      <%= link_to  "Go to Album", "/albums/#{@track.album.id}", class: "btn btn-primary" %>
     </div>
   </div>
   <%= link_to  "Back", "/tracks", class: "btn btn-secondary mb-3" %>
