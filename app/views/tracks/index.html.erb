@@ -18,8 +18,21 @@
 
 <% end %>
 
-<ol>
+<table class="table table-bordered table-hover" >
+<thead>
+  <tr>
+    <th scope="col">Track</th>
+    <th scope="col">Album</th>
+    <th scope="col">Artist</th>
+  </tr>
+</thead>
+<tbody>
   <% @tracks.each do |track| %>
-      <li> <%= link_to track.name, track %> </li>
+  <tr>
+    <td><%= link_to track.name, track %></td>
+    <td><%= track.album.title %></td>
+    <td><%= track.album.artist.name %></td>
+  </tr>
+</tbody>
   <% end %>
-</ol>
+</table>
