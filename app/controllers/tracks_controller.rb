@@ -18,7 +18,7 @@ class TracksController < ApplicationController
   def create
     @albums = Album.all
     @track = Track.new(track_params)
-    @mediatypes = MediaType.all
+    @media_types = MediaType.all
     @genres = Genre.all
     if @track.save
       redirect_to @track
