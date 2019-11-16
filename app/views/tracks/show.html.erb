@@ -1,6 +1,6 @@
 <h3> Showing Track </h3>
 
-<%= link_to  "Edit", edit_track_path, class: "btn btn-outline-info mb-3" %>
+<%= link_to  "Edit", edit_track_path(album_id: @track.album.id, media_type_id: @track.media_type.id, genre_id: @track.genre.id), class: "btn btn-outline-info mb-3" %>
 
 <fieldset>
   <div class="card mb-3">
