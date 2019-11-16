@@ -1,14 +1,18 @@
 <h3>Edit Artist</h3>
 
 <%= form_for @artist, :url => {:action => "update", :id =>@artist} do |i| %>
-
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1">Name</span>
-      </div>
-      <%= i.text_field 'name' %>
+<div class="container">
+<form>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Name:</label>
+    <div class="col-sm-10">
+      <%= i.text_field :name, class: "form-control" %>
     </div>
+  </div>
+</form>
 
-<%= i.submit "Save changes", class: "btn btn-primary" %>
-<%= link_to "Back", "/artists", class: "btn btn-secondary"%>
+<%= i.submit 'Save', class: "btn btn-primary" %>
+
+<%= link_to "Cancel", "/artists", class: "btn btn-secondary" %>
+
 <% end %>
