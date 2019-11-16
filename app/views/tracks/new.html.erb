@@ -3,61 +3,60 @@
 <%= @track.errors.first %>
 
 <%= form_for @track do |f| %>
-<form class="col-md-8">
-  <div class="input-group mb-2">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon1">Name</span>
+<form>
+
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Name:</label>
+    <div class="col-sm-10">
+      <%= f.text_field :name, class: "form-control" %>
     </div>
-    <%= f.text_field :name %>
   </div>
 
-  <div class="input-group mb-2">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon1">Album</span>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Album:</label>
+    <div class="col-sm-10">
+      <%= f.select :album_id, options_for_select(@albums.collect{ |album| [album.title, album.id] },params[:album_id]),{}, class: "form-control"%>
     </div>
-    <%= f.select :album_id, options_for_select(@albums.collect{ |album| [album.title, album.id] },params[:album_id]),{}%>
   </div>
 
-  <div class="input-group mb-2">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon1">Media type</span>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Media Type:</label>
+    <div class="col-sm-10">
+      <%= f.select :media_type_id, options_for_select(@media_types.collect{ |media_type| [media_type.name, media_type.id] },params[:media_type_id]),{}, class: "form-control" %>
     </div>
-    <%= f.select :media_type_id, options_for_select(@media_types.collect{ |media_type| [media_type.name, media_type.id] },params[:media_type_id]),{} %>
   </div>
 
-  <div class="input-group mb-2">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon1">Genre</span>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Genre:</label>
+    <div class="col-sm-10">
+      <%= f.select :genre_id, options_for_select(@genres.collect{ |genre| [genre.name, genre.id] },params[:genre_id]),{}, class: "form-control" %>
     </div>
-    <%= f.select :genre_id, options_for_select(@genres.collect{ |genre| [genre.name, genre.id] },params[:genre_id]),{} %>
   </div>
 
-  <div class="input-group mb-2">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon1">Composer</span>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Composer:</label>
+    <div class="col-sm-10">
+      <%= f.text_field :composer, class: "form-control" %>
     </div>
-    <%= f.text_field :composer %>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Milliseconds:</label>
+    <div class="col-sm-10">
+      <%= f.text_field :milliseconds, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="input-group mb-2">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon1">Milliseconds</span>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Size (bytes):</label>
+    <div class="col-sm-10">
+      <%= f.text_field :bytes, class: "form-control" %>
     </div>
-    <%= f.text_field :milliseconds %>
   </div>
-
-  <div class="input-group mb-2">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon1">Size (bytes)</span>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Unit-price:</label>
+    <div class="col-sm-10">
+      <%= f.text_field :unit_price, class: "form-control" %>
     </div>
-    <%= f.text_field :bytes %>
-  </div>
-
-  <div class="input-group mb-2">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon1">Unit-price</span>
-    </div>
-    <%= f.text_field :unit_price %>
   </div>
 
 </form>
