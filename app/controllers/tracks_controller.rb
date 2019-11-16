@@ -30,14 +30,14 @@ class TracksController < ApplicationController
   def edit
     @albums = Album.all
     @track = Track.find(params[:id])
-    @mediatypes = MediaType.all
+    @media_types = MediaType.all
     @genres = Genre.all
   end
 
   def update
     @albums = Album.all
     @track = Track.find(params[:id])
-    @mediatypes = MediaType.all
+    @media_types = MediaType.all
     @genres = Genre.all
     if @track.update_attributes(track_params)
        redirect_to @track
