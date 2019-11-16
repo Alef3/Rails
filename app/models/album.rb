@@ -3,5 +3,6 @@ class Album < ApplicationRecord
   has_many :tracks
 
     scope :filter, ->(title) { where("title LIKE ?", "%#{title}%") if title.present? }
-  validates_presence_of :title, :artist
+    scope :artist, ->(name) { where("name LIKE ?", "%#{name}%") if name.present? }
+    validates_presence_of :title, :artist
 end
