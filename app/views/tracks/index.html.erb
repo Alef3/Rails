@@ -18,7 +18,7 @@
             <div class="input-group-prepend">
               <%= label_tag(:name, "Filter:", class: "input-group-text") %>
             </div>
-            <%= text_field_tag(:name, params['name'], class: "mr-3") %>
+            <%= text_field_tag(:name, params['name'], placeholder:"Track Name", class: "mr-3") %>
             <%= submit_tag("Submit", class: "btn btn-outline-success mr-2") %>
             <%=link_to "Create Track", new_track_path, class: "btn btn-primary" %>
           </div>
