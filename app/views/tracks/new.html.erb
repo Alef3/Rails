@@ -29,7 +29,7 @@
     <div class="input-group-prepend">
       <span class="input-group-text" id="basic-addon1">Genre</span>
     </div>
-    <%= f.text_field :genre_id %>
+    <%= f.select :genre_id, options_for_select(@genres.collect{ |genre| [genre.name, genre.id] },params[:genre_id]),{} %>
   </div>
 
   <div class="input-group mb-2">
