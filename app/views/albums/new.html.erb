@@ -17,7 +17,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text" id="basic-addon1">Artist</span>
         </div>
-        <%= i.text_field :artist_id %>
+        <%= i.select :artist_id, options_for_select(@artists.collect{ |artist| [artist.name, artist.id] },params[:artist_id]),{} %>
       </div>
     </div>
   </div>
