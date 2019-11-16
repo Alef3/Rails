@@ -10,7 +10,7 @@ class TracksController < ApplicationController
 
   def new
     @track = Track.new
-    @mediatypes = MediaType.all
+    @media_types = MediaType.all
     @albums = Album.all
     @genres = Genre.all
   end
