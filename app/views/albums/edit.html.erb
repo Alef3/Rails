@@ -15,8 +15,8 @@
       <%= i.select :artist_id, options_for_select(@artists.collect{ |artist| [artist.name, artist.id] },params[:artist_id]),{}, class: "form-control" %>
     </div>
   </div>
+  <%= i.submit "Save changes", class: "btn btn-primary" %>
+  <%= link_to "Back", "/albums", class: "btn btn-secondary"%>
 </form>
 
-<%= i.submit "Save changes", class: "btn btn-primary" %>
-<%= link_to "Back", "/albums", class: "btn btn-secondary"%>
 <% end %>
