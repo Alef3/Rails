@@ -1,7 +1,8 @@
 class ArtistsController < ApplicationController
 
   def index
-      @artists = Artist.filter(params['name'])
+      @artists = Artist.all.includes(:albums)
+                       .filter(params['name'])
   end
 
   def show

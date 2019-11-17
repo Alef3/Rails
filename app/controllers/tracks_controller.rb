@@ -1,7 +1,8 @@
 class TracksController < ApplicationController
 
   def index
-    @tracks = Track.all
+    @tracks = Track.all.includes(:album, album: :artist)
+                   .filter(params['name'])
   end
 
   def show
