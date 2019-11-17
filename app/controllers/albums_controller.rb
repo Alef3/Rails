@@ -1,7 +1,9 @@
 class AlbumsController < ApplicationController
 
   def index
-      @albums = Album.filter(params['title'])
+      @albums = Album.all
+                     .filter_title(params['title'])
+                     .filter_artist_id(params['artist_id'])
   end
 
   def show
