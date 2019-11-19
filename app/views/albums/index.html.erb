@@ -1,0 +1,58 @@
+<div class="vertical-center">
+  <div class="container">
+    <div class="row d-flex justify-content-center" id="showingArtistAlbums">
+      <form class="form-inline">
+        <div class="form-group mb-1">
+          <h2> Albums List</h2>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <%= form_tag("/albums", method: "get") do %>
+  <form>
+    <div class="form-row mb-3">
+      <div class="input-group col-sm-3">
+        <div class="input-group-prepend">
+          <%= label_tag(:title, "Filter:", class: "input-group-text") %>
+        </div>
+        <%= text_field_tag(:title, params['title'], placeholder:"Album Title", class: "mr-3") %>
+      </div>
+      <div class="input-group col-sm-8">
+        <div class="input-group-prepend">
+          <%= label_tag(:artist_id, "Artist:", class: "input-group-text") %>
+        </div>
+        <%= select_tag(:artist_id, options_for_select(Artist.all.collect{ |artist| [artist.name, artist.id]}))%>
+      </div>
+      <div class="col-sm-1">
+        <%= submit_tag("Search", class: "btn btn-outline-success") %>
+      </div>
+    </div>
+    <div class="form-row justify-content-center mb-3">
+        <%=link_to "Create Album", new_album_path, class: "btn btn-primary" %>
+    </div>
+
+  </form>
+  <% end %>
+</div>
+
+
+
+<table class="table table-bordered table-hover" >
+  <thead>
+    <tr>
+      <th scope="col">Album</th>
+      <th scope="col">Artist</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @albums.each do |album| %>
+    <tr>
+      <td><%= link_to album.title, album %></td>
+      <td><%= album.artist.name %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>

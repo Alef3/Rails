@@ -1,0 +1,26 @@
+#grupo{
+  color: white;
+}
+
+#albumCard{
+  height: 13rem;
+  width: 22rem;
+}
+
+#albumTitle{
+  font: Helvetica Neue;
+  background-color: white;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+#showingArtistAlbums{
+  height: 120px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+#showingAlbumTracks{
+  text-align: center;
+}

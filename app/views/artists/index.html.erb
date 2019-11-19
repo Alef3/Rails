@@ -1,5 +1,44 @@
-<h3> Desenvolvimento Web 2 </h3>
+<div class="vertical-center">
+    <div class="container">
+            <div class="row d-flex justify-content-center" id="showingArtistAlbums">
+             <form class="form-inline">
+                 <div class="form-group mb-1">
+                    <h2> Artists List</h2>
+                  </div>
+              </form>
+            </div>
+      </div>
+  </div>
 
-<p> O Conteúdo da Variável Consulta Será Exibido Abaixo: </p>
+  <%= form_tag("/artists", method: "get") do %>
+      <form>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-9">
+              <div class="form-row align-items-center">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <%= label_tag(:name, "Filter:", class: "input-group-text") %>
+                    </div>
+                    <%= text_field_tag(:name, params['name'], placeholder:"Artist Name", class: "mr-3 form-control") %>
+                    <%= submit_tag("Search", class: "btn btn-outline-success mr-2") %>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3 text-right">
+              <%=link_to "Create Artist", new_artist_path, class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+      </form>
 
-<%= @consulta.try(:inspect) %>
+  <% end %>
+
+    <ul class="list-group">
+      <% @artists.each do |artist| %>
+      <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+        <%= link_to artist.name, artist %>
+        <span class="badge badge-primary badge-pill" data-toggle="tooltip" data-html="true" data-placement="left" title="Number of Album(s)"><%=artist.albums.count%></span>
+      </li>
+      <% end %>
+    </ul>

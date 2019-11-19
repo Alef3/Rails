@@ -1,0 +1,53 @@
+<div class="vertical-center">
+    <div class="container">
+            <div class="row d-flex justify-content-center" id="showingArtistAlbums">
+             <form class="form-inline">
+                 <div class="form-group mb-1">
+                    <h2> Tracks List</h2>
+                  </div>
+              </form>
+            </div>
+      </div>
+  </div>
+
+<%= form_tag("/tracks", method: "get") do %>
+    <form>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-9">
+            <div class="form-row align-items-center">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <%= label_tag(:name, "Filter:", class: "input-group-text") %>
+                  </div>
+                  <%= text_field_tag(:name, params['name'], placeholder:"Track Name", class: "mr-3  form-control") %>
+                  <%= submit_tag("Search", class: "btn btn-outline-success mr-2") %>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3 text-right">
+            <%=link_to "Create Track", new_track_path, class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </form>
+<% end %>
+
+<table class="table table-bordered table-hover" >
+<thead>
+  <tr>
+    <th scope="col">Track</th>
+    <th scope="col">Album</th>
+    <th scope="col">Artist</th>
+  </tr>
+</thead>
+<tbody>
+  <% @tracks.each do |track| %>
+  <tr>
+    <td><%= link_to track.name, track %></td>
+    <td><%= track.album.title %></td>
+    <td><%= track.album.artist.name %></td>
+  </tr>
+</tbody>
+  <% end %>
+</table>

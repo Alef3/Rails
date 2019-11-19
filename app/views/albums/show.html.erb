@@ -1,0 +1,55 @@
+<div class="vertical-center">
+    <div class="container">
+            <div class="row d-flex justify-content-center" id="showingArtistAlbums">
+             <form class="form-inline">
+               <div class="form-group mb-1">
+                 <div class="col-sm-2">
+                      <%= link_to "All Albums", "/albums", class: "btn btn-outline-secondary btn-sm" %>
+                 </div>
+
+                 <div class="col-sm-2">
+                      <%= link_to "Go to Artist", "/artists/#{@album.artist.id}", class: "btn btn-outline-warning btn-sm" %>
+                 </div>
+
+                 <div class="col-lg-4">
+                    <h4 class="mr-5" id="showingAlbumTracks"> Album: <%= @album.title %> </h4>
+                 </div>
+
+                 <div class="col-sm-2">
+                   <%= link_to  "Edit Album", edit_album_path(artist_id: @album.artist.id), class: "btn btn-outline-info btn-sm" %>
+                 </div>
+                 <div class="col-sm-2">
+                   <%= link_to  "Add Track", new_track_path(album_id: @album.id), class: "btn btn-primary btn-sm" %>
+                 </div>
+
+               </div>
+               </form>
+            </div>
+          </div>
+        </div>
+
+   <div class="accordion">
+   <% @tracks.each do |track| %>
+       <div class="card">
+           <div class="card-header" id="heading<%= track.id%>">
+             <h5 class="mb-0">
+               <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse<%= track.id%>" aria-expanded="false" aria-controls="collapse<%= track.id%>">
+                 <%= track.name%>
+               </button>
+             </h5>
+           </div>
+
+           <div id="collapse<%= track.id%>" class="collapse" aria-labelledby="heading<%= track.id%>" data-parent=".accordion">
+             <div class="card-body">
+               <p><b> Media Type: </b> <%= track.media_type.name %></p>
+               <p><b> Genre: </b> <%= track.genre.name %></p>
+               <p><b> Composer: </b> <%= track.composer %></p>
+               <p><b> Milliseconds: </b> <%= track.milliseconds %></p>
+               <p><b> Size (bytes): </b> <%= track.bytes %></p>
+               <p><b> Unit Price: </b> <%= track.unit_price %></p>
+               <%= link_to  "Edit Track", edit_track_path, class: "btn btn-info" %>
+             </div>
+           </div>
+         </div>
+     <% end %>
+    </div>
