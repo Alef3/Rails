@@ -1,55 +1,29 @@
-<div class="vertical-center">
-    <div class="container">
-            <div class="row d-flex justify-content-center" id="showingArtistAlbums">
-             <form class="form-inline">
-               <div class="form-group mb-1">
-                 <div class="col-sm-3">
-                      <%= link_to "All Artists", "/artists", class: "btn btn-outline-secondary btn-sm" %>
-                 </div>
+    <div class="row" id="showingArtistAlbums">
+      <div class="col-sm text-left">
+        <%= link_to "All Artists", "/artists", class: "btn btn-outline-secondary btn-sm" %>
+      </div>
+      <div class="col-sm text-center">
+        <h3> Showing Albums of "<%= @artist.name %>" </h3>
+      </div>
+      <div class="col-sm text-right">
+        <%= link_to  "Edit Artist", edit_artist_path, class: "btn btn-outline-info btn-sm" %>
+      </div>
+    </div>
 
-                 <div class="col-lg-6">
-                    <h3> Showing Albums of "<%= @artist.name %>" </h3>
-                 </div>
 
-                 <div class="col-md-3">
-                   <%= link_to  "Edit Artist", edit_artist_path, class: "btn btn-outline-info btn-sm" %>
-                 </div>
-
-               </div>
-               </form>
+      <div class="row">
+        <% @albums.each do |album| %>
+        <div class="col-lg-4 mb-4">
+          <div class="card text-center">
+            <div class="card-header" id="albumTitle"><%= album.title %></div>
+            <div class="card-body">
+              <p class="card-text"><b> Tracks:     </b> <%= Track.where(album_id: album.id).count %> <br>
+              <b> Created at: </b> <%= format(album.created_at) %> <br>
+              <b> Updated at: </b> <%= format(album.updated_at) %> <br></p>
+              <p><%= link_to "Go to Tracks", "/albums/#{album.id}", class: "btn btn-info" %></p>
             </div>
           </div>
         </div>
 
-
-
-
-
-<div class="vertical-center">
-  <div class="container">
-    <div class="row">
-      <div class="card-columns">
-          <% @albums.each do |album| %>
-            <div class="card text-center" id="albumCard">
-              <div class="card-header" id="albumTitle"><%= album.title %></div>
-              <div class="card-body">
-                <p class="card-text">
-                  <b> Tracks:     </b> <%= Track.where(album_id: album.id).count %> <br>
-                  <b> Created at: </b> <%= format(album.created_at) %> <br>
-                  <b> Updated at: </b> <%= format(album.updated_at) %> <br>
-                </p>
-                <p><%= link_to "Go to Tracks", "/albums/#{album.id}", class: "btn btn-info" %></p>
-              </div>
-            </div>
-          <% end %>
+        <% end %>
       </div>
-      <div class="card text-center" id="albumCard">
-            <div class="card-header">New Album</div>
-                  <div class="card-body">
-                    <p class="card-text">Add Album to <%= @artist.name %></p>
-                    <%= link_to  "Create", new_album_path(artist_id: @artist.id), class: "btn btn-primary" %>
-                  </div>
-      </div>
-    </div>
-  </div>
-</div>
