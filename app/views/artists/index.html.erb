@@ -3,7 +3,7 @@
             <div class="row d-flex justify-content-center" id="showingArtistAlbums">
              <form class="form-inline">
                  <div class="form-group mb-1">
-                    <h2 class="mr-5"> Artists List</h2>
+                    <h2> Artists List</h2>
                   </div>
               </form>
             </div>
@@ -12,14 +12,20 @@
 
   <%= form_tag("/artists", method: "get") do %>
       <form>
-      <div class="col-7">
-        <div class="form-row align-items-center">
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <%= label_tag(:name, "Filter:", class: "input-group-text") %>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-9">
+              <div class="form-row align-items-center">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <%= label_tag(:name, "Filter:", class: "input-group-text") %>
+                    </div>
+                    <%= text_field_tag(:name, params['name'], placeholder:"Artist Name", class: "mr-3 form-control") %>
+                    <%= submit_tag("Search", class: "btn btn-outline-success mr-2") %>
+                  </div>
+                </div>
               </div>
-              <%= text_field_tag(:name, params['name'], placeholder:"Artist Name", class: "mr-3") %>
-              <%= submit_tag("Search", class: "btn btn-outline-success mr-2") %>
+              <div class="col-sm-3 text-right">
               <%=link_to "Create Artist", new_artist_path, class: "btn btn-primary" %>
             </div>
           </div>
