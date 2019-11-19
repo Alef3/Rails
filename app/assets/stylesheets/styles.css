@@ -16,6 +16,9 @@
 
 #showingArtistAlbums{
   height: 120px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
 }
 
 #showingAlbumTracks{
