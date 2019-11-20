@@ -4,6 +4,7 @@ class AlbumsController < ApplicationController
       @albums = Album.all.includes(:artist)
                      .filter_title(params['title'])
                      .filter_artist_id(params['artist_id'])
+      @artists = Artist.all
   end
 
   def show
