@@ -3,7 +3,7 @@
     <div class="row d-flex justify-content-center" id="showingArtistAlbums">
       <form class="form-inline">
         <div class="form-group mb-1">
-          <h2> Albums List</h2>
+          <h2 data-toggle="tooltip" data-html="true" data-placement="bottom" title="Showing <%=@albums.count%> Albums"> Albums List</h2>
         </div>
       </form>
     </div>
@@ -18,13 +18,13 @@
         <div class="input-group-prepend">
           <%= label_tag(:title, "Filter:", class: "input-group-text") %>
         </div>
-        <%= text_field_tag(:title, params['title'], placeholder:"Album Title", class: "mr-3") %>
+        <%= text_field_tag(:title, params['title'], placeholder:"Album Title", class: "form-control") %>
       </div>
       <div class="input-group col-sm-8">
         <div class="input-group-prepend">
           <%= label_tag(:artist_id, "Artist:", class: "input-group-text") %>
         </div>
-        <%= select_tag(:artist_id, options_for_select(Artist.all.collect{ |artist| [artist.name, artist.id]}))%>
+        <%= select_tag(:artist_id, options_for_select(@artists.all.collect{ |artist| [artist.name, artist.id]}),{include_blank: 'All Artists'})%>
       </div>
       <div class="col-sm-1">
         <%= submit_tag("Search", class: "btn btn-outline-success") %>

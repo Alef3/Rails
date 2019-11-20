@@ -17,21 +17,21 @@
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">Album:</label>
     <div class="col-sm-10">
-      <%= f.select :album_id, options_for_select(@albums.collect{ |album| [album.title, album.id] },params[:album_id]),{include_blank: 'Select an option'}, class: "form-control"%>
+      <%= f.select :album_id, options_for_select(@albums.collect{ |album| [album.title, album.id] }, :selected => f.object.album_id),{include_blank: 'Select an option'}, class: "form-control"%>
     </div>
   </div>
 
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">Media Type:</label>
     <div class="col-sm-10">
-      <%= f.select :media_type_id, options_for_select(@media_types.collect{ |media_type| [media_type.name, media_type.id] },params[:media_type_id]),{include_blank: 'Select an option'}, class: "form-control" %>
+      <%= f.select :media_type_id, options_for_select(@media_types.collect{ |media_type| [media_type.name, media_type.id] }, :selected => f.object.media_type_id),{include_blank: 'Select an option'}, class: "form-control" %>
     </div>
   </div>
 
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">Genre:</label>
     <div class="col-sm-10">
-      <%= f.select :genre_id, options_for_select(@genres.collect{ |genre| [genre.name, genre.id] },params[:genre_id]),{include_blank: 'Select an optiom'}, class: "form-control" %>
+      <%= f.select :genre_id, options_for_select(@genres.collect{ |genre| [genre.name, genre.id] }, :selected => f.object.genre_id),{include_blank: 'Select an option'}, class: "form-control" %>
     </div>
   </div>
 

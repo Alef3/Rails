@@ -16,7 +16,7 @@
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">Artist:</label>
     <div class="col-sm-10">
-      <%= i.select :artist_id, options_for_select(@artists.collect{ |artist| [artist.name, artist.id] },params[:artist_id]),{include_blank: 'Select an Artist'}, class: "form-control" %>
+      <%= i.select :artist_id, options_for_select(@artists.collect{ |artist| [artist.name, artist.id] }, :selected => i.object.artist_id), {include_blank: 'Select an Artist'}, class: "form-control" %>
     </div>
   </div>
   <%= i.submit "Save changes", class: "btn btn-primary" %>
